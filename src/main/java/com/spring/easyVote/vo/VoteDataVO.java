@@ -19,5 +19,6 @@ public class VoteDataVO {
     private String dupYn;
     private String addOptYn;
     private String liveRsYn;
+    private String vtPrgDc;
     private int totCnt;
 }

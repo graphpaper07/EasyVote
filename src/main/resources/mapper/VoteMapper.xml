@@ -2,6 +2,25 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.spring.easyVote.mapper.VoteMapper">	<!-- mapper 인터페이스가 위치하는 경로 -->
     <select id="getVoteList" resultType="com.spring.easyVote.vo.VoteDataVO">
-        SELECT * FROM VT_TB_POST
+        SELECT T1.RG_SEQ,
+               T1.VT_CTG,
+               T1.VT_NM,
+               T1.VT_CN,
+               T1.ENO,
+               T1.PN,
+               T1.STT_DTTI,
+               T1.END_DTTI,
+               T1.WRT_DTTI,
+               T1.ANON_YN,
+               T1.DUP_YN,
+               T1.ADD_OPT_YN,
+               T1.LIVE_RS_YN,
+               T1.TOT_CNT,
+               T1.FST_CRT_USID,
+               T1.FST_CRT_DTTI,
+               T1.LT_CH_USID,
+               T1.LT_CH_DTTI,
+               T2.IC_VLCN AS VT_PRG_DC
+        FROM VT_TB_POST T1 JOIN IC_TB_CODE T2 ON T1.VT_PRG_DC = T2.IC_VL WHERE IC_C = 'VT_PRG_DC';
     </select>
 </mapper>
